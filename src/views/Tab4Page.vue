@@ -72,14 +72,14 @@ rion-content {
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { IonPage, IonContent, IonCard } from '@ionic/vue';
+import { IonPage, IonContent, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle } from '@ionic/vue';
 import { FlowForm, Question, QuestionModel, QuestionType, ChoiceOption, LanguageModel } from '@ditdot-dev/vue-flow-form'
 
 import AdvancedLoader from '../components/AdvancedLoader.vue';
 
 export default defineComponent({
     name: 'Tab1Page',
-    components: { IonContent, IonPage, FlowForm, Question, AdvancedLoader, IonCard },
+    components: { IonContent, IonPage, FlowForm, Question, AdvancedLoader, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle },
     data() {
         return {
             finalScore: 0,
