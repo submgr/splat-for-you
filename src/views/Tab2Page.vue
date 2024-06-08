@@ -80,8 +80,8 @@ export default defineComponent({
           const final_img_url = `https://hsecreate-machivevisionservice.deqstudio.com/result/${hash}/after.jpg`;
           parent_this.image_after = final_img_url;
           parent_this.finished = true;
-          var win = window.open("", "_blank");
-          win.document.write("<html><body><img src='" + final_img_url + "'></body></html>");
+          // var win = window.open("", "_blank");
+          // win.document.write("<html><body><img src='" + final_img_url + "'></body></html>");
         } else {
           console.log("Error: " + oReq.statusText);
           alert("Произошла ошибка на сервере. Попробуйте позже!")
