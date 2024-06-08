@@ -7,8 +7,10 @@
         <ion-button expand="block" class="bottom-button" style="margin-bottom: 2vh;" @click="goNextOne">{{currentSliderButtonText}}</ion-button>
       </div>
 
-      <iframe src="https://www.canva.com/design/DAGHi4PtmTA/ipodtxk87_JoWotqaeTh7A/watch" frameborder="0" style="border:0; width:100%; height:100%;"></iframe>
-
+      <div>
+        <iframe src="https://www.canva.com/design/DAGHi4PtmTA/ipodtxk87_JoWotqaeTh7A/watch" frameborder="0" style="border:0; width:100%; height:100%;"></iframe>
+      <ion-button expand="block" class="bottom-button" style="margin-bottom: 2vh;" @click="goNextOne">{{currentSliderButtonText}}</ion-button>
+      </div>
 
 
 
