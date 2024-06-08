@@ -18,6 +18,7 @@
     "@capacitor/haptics": "6.0.0",
     "@capacitor/keyboard": "6.0.0",
     "@capacitor/status-bar": "6.0.0",
+    "@ditdot-dev/vue-flow-form": "^2.3.2",
     "@img-comparison-slider/vue": "^8.0.0",
     "@ionic/pwa-elements": "^3.3.0",
     "@ionic/vue": "^8.0.0",
