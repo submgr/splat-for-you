@@ -84,7 +84,7 @@ export default defineComponent({
           // This will log the response text to the console.
           console.log(oReq.responseText);
           const hash = JSON.parse(oReq.responseText).hash;
-          const final_img_url = `https://hsecreate-machivevisionservice.deqstudio.com/result/${hash}/after.jpg`;
+          const final_img_url = `https://hsecreate-machivevisionservice.deqstudio.com/result2/${hash}/after.jpg`;
           parent_this.image_after = final_img_url;
           parent_this.finished = true;
           // var win = window.open("", "_blank");

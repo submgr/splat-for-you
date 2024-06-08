@@ -2,10 +2,14 @@
   <ion-page>
     <ion-content :fullscreen="true">
 
-      <div class="image-container">
+      <div style="z-index: -99  !important; display: flex; justify-content: center; align-items: center;">
+        <ion-spinner name="crescent" style="margin-top: 40vh; z-index: -99  !important; display: relative; transform: scale(2);"></ion-spinner>
+      </div>
+
+      <div class="image-container" style=" display: block;">
         <video :src="currentSliderVideo" autoplay loop muted playsinline class="fullscreen-video"
-          style="margin-top: -2vh;" />
-        <ion-button expand="block" class="bottom-button" style="margin-bottom: 5vh;" @click="goNextOne">{{
+          style="margin-top: -2vh; z-index: 99 !important;" />
+        <ion-button expand="block" class="bottom-button" style="margin-bottom: 5vh; z-index: 100 !important;" @click="goNextOne">{{
           currentSliderButtonText }}</ion-button>
       </div>
 
@@ -30,7 +34,7 @@
 </template>
 
 <script lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonSpinner } from '@ionic/vue';
 import { Camera, CameraResultType } from '@capacitor/camera';
 
 import image1 from '../assets/graphics/love-conquers-all.png';
@@ -44,7 +48,8 @@ export default defineComponent({
   components: {
     IonContent,
     IonPage,
-    IonButton
+    IonButton,
+    IonSpinner
   },
   data() {
     return {
@@ -106,7 +111,7 @@ export default defineComponent({
     if (tabsEl) {
       tabsEl.hidden = true;
       tabsEl.style.height = "1";
-      tabsEl.style.display='none'
+      tabsEl.style.display = 'none'
     }
 
     this.goToSlide(this.currentSlideId + 1);
