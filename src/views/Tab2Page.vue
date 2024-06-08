@@ -1,16 +1,14 @@
 <template>
   <ion-page>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Tab 2</ion-title>
-      </ion-toolbar>
-    </ion-header>
     <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Tab 2</ion-title>
-        </ion-toolbar>
-      </ion-header>
+
+
+      <div style="margin-top: 5vh; margin-left: 6vw;">
+        <h1 class="gradient-text big-text">Самое время</h1>
+        <h1 class="gradient-text normal-text" style="margin-top: -0vh;">примерить <span class="underlined">улыбку</span></h1>
+        <ion-button style="margin-top: 3vh; margin-left: -2px;" @click="makePhoto()">Улыбнуться!</ion-button>
+        <img class="bottom-image" src="../assets/graphics/love-conquers-all.png" style="width: 150vw;"></img>
+      </div>
 
       <ImgComparisonSlider v-if="finished == true">
         <!-- eslint-disable -->
@@ -18,6 +16,8 @@
         <img slot="second" style="width: 100%" :src="image_after" />
         <!-- eslint-enable -->
       </ImgComparisonSlider>
+
+      
 
     </ion-content>
   </ion-page>
@@ -104,7 +104,7 @@ export default defineComponent({
       tabsEl.style.height = "1";
     }
 
-    this.makePhoto();
+    //this.makePhoto();
   },
   setup() {
     return {
@@ -112,3 +112,35 @@ export default defineComponent({
   }
 });
 </script>
+
+<style scoped>
+img {
+  object-fit: cover;
+}
+.bottom-image {
+  position: absolute;
+  bottom: -5vw;
+  height: 40vh;
+  left: -25vw;
+}
+.gradient-text {
+  background: -webkit-linear-gradient(45deg, #65BFEB, #C497F1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.big-text{
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-top: 10vh;
+  margin-bottom: 0;
+}
+.normal-text{
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.underlined {
+  text-decoration: underline !important;
+}
+</style>

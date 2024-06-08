@@ -10,6 +10,6 @@ import { IonApp, IonRouterOutlet } from '@ionic/vue';
 
 <style>
 ion-content {
-  --background: #E3CFF7 !important;
+  --background: #F6F9FB !important;
 }
 </style>
