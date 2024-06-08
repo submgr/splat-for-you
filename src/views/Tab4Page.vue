@@ -12,36 +12,40 @@
                     <div class="f-section-wrap">
                         <div v-if="1 < 2">
                             <div v-if="loading" style="margin-left: -5vw;">
-                                <AdvancedLoader origin="support-chat-is-loading" style="margin-top: 45vh; margin-left: -1vw;" />
+                                <AdvancedLoader origin="support-chat-is-loading"
+                                    style="margin-top: 45vh; margin-left: -1vw;" />
                                 <div class="center-image w-logo" style="margin-top: 05vh;">
                                     <img src="../assets/graphics/logo-biomedforyou.png"></img>
                                 </div>
-                                
+
                             </div>
                             <div v-else>
                                 <div>
 
                                     <img :src="recommendation.image" style="height: 40vh;  transform: rotate(50deg);">
-                                    
-                                    <ion-card style="margin-left: -2vw; margin-right: 2vw; margin-top: -7vh; border-radius: 20px;">
+
+                                    <ion-card
+                                        style="margin-left: -2vw; margin-right: 2vw; margin-top: -7vh; border-radius: 20px;">
                                         <ion-card-header>
-                                            <ion-card-title style="margin-top: -2vh;">{{ recommendation.title }}</ion-card-title>
+                                            <ion-card-title style="margin-top: -2vh;">{{ recommendation.title
+                                                }}</ion-card-title>
                                             <ion-card-subtitle>
                                                 <div class="center-image w-logo"
-                                        style="margin-left: 2px; margin-bottom: 0px; margin-top: 0vh;">
-                                        <img src="../assets/graphics/logo-blacktext.png" style="height: 4vh;"></img>
-                                    </div>
+                                                    style="margin-left: 2px; margin-bottom: 0px; margin-top: 0vh;">
+                                                    <img src="../assets/graphics/logo-blacktext.png"
+                                                        style="height: 4vh;"></img>
+                                                </div>
                                             </ion-card-subtitle>
                                         </ion-card-header>
 
-                                        <ion-card-content  >
+                                        <ion-card-content>
                                             {{
-                                        recommendation.description }}
+                                                recommendation.description }}
                                         </ion-card-content>
                                     </ion-card>
                                 </div>
 
-                                
+
                             </div>
                         </div>
                     </div>
@@ -67,13 +71,14 @@ rion-content {
 .vff ul.f-radios li {
     border-radius: 20px !important;
 }
-
 </style>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { IonPage, IonContent, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle } from '@ionic/vue';
 import { FlowForm, Question, QuestionModel, QuestionType, ChoiceOption, LanguageModel } from '@ditdot-dev/vue-flow-form'
+
+import confetti from 'canvas-confetti';
 
 import AdvancedLoader from '../components/AdvancedLoader.vue';
 
@@ -95,7 +100,7 @@ export default defineComponent({
             },
             language: new LanguageModel({
                 pressEnter: "",
-                continue: "дальше"
+                continue: "Вперед!"
             }),
             productsData: {
                 sensitive: {
@@ -137,6 +142,17 @@ export default defineComponent({
 
             },
             questions: [
+                {
+                    "type": 'sectionbreak',
+                    "id": 'review',
+                    "description": "Впереди вас ждет несколько вопросов, после которых вы узнаете, какая зубная паста Biomed® подходит вам больше всего!",
+                    "tagline": '',
+                    "title": 'Время найти зубную пасту вашей мечты!',
+                    "multiple": false,
+                    "required": true,
+                    "helpTextShow": false,
+                    "model": '',
+                },
                 {
                     "type": "multiplechoice",
                     "id": "smoking",
@@ -409,6 +425,9 @@ export default defineComponent({
             const data = this.getData()
             this.loading = true
 
+             // eslint-disable-next-line
+            const parent_this = this;
+
             /*
               You can use Fetch API to send the data to your server, eg.:
               fetch(url, {
@@ -421,6 +440,29 @@ export default defineComponent({
             */
             setTimeout(() => {
                 self.loading = false
+
+                var duration = 4 * 1000;
+                var animationEnd = Date.now() + duration;
+                var defaults = { startVelocity: 20, spread: 260, ticks: 90, zIndex: 0 };
+
+                parent_this.loading = false;
+
+                function randomInRange(min, max) {
+                    return Math.random() * (max - min) + min;
+                }
+
+                var interval = setInterval(function () {
+                    var timeLeft = animationEnd - Date.now();
+
+                    if (timeLeft <= 0) {
+                        return clearInterval(interval);
+                    }
+
+                    var particleCount = 100 * (timeLeft / duration);
+                    // since particles fall down, start a bit higher than random
+                    confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.1 } }));
+                    confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.1 } }));
+                }, 250);
             }, 4500)
         },
         getData() {

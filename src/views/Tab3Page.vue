@@ -2,13 +2,13 @@
   <ion-page>
     <ion-content :fullscreen="true">
 
-      <div class="image-container" style="display: none;">
-        <img :src="currentSliderImage" alt="Presentation slide" class="fullscreen-image" />
+      <div class="image-container">
+        <video :src="currentSliderVideo" autoplay loop muted playsinline class="fullscreen-video" />
         <ion-button expand="block" class="bottom-button" style="margin-bottom: 2vh;"
           @click="goNextOne">{{ currentSliderButtonText }}</ion-button>
       </div>
 
-      <div>
+      <div style="display: none;">
         <div style="position: relative; width: 100%; height: 0; padding-top: 177.7778%;
  padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
  border-radius: 8px; will-change: transform;">
@@ -114,10 +114,16 @@ body {
   justify-content: center;
 }
 
-.fullscreen-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.fullscreen-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background-size: cover;
 }
 
 .bottom-button {
