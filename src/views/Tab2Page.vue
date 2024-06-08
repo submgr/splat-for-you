@@ -3,7 +3,7 @@
     <ion-content :fullscreen="true">
 
 
-      <div style="margin-top: 5vh; margin-left: 6vw;">
+      <div style="margin-top: 5vh; margin-left: 6vw;" v-if="loading != true && finished != true">
         <h1 class="gradient-text big-text">Самое время</h1>
         <h1 class="gradient-text normal-text" style="margin-top: -0vh;">примерить <span class="underlined">улыбку</span></h1>
         <ion-button style="margin-top: 3vh; margin-left: -2px;" @click="makePhoto()">Улыбнуться!</ion-button>
@@ -43,6 +43,7 @@ export default defineComponent({
   },
   data() {
     return {
+      loading: false,
       finished: false,
       image_before: null,
       image_after: null
