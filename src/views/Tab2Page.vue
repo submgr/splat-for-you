@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton } from '@ionic/vue';
 import { Camera, CameraResultType } from '@capacitor/camera';
 
 import { ImgComparisonSlider } from '@img-comparison-slider/vue';
@@ -38,7 +38,8 @@ export default defineComponent({
   components: {
     IonContent,
     IonPage,
-    ImgComparisonSlider
+    ImgComparisonSlider,
+    IonButton
   },
   data() {
     return {
