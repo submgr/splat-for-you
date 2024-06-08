@@ -47,7 +47,7 @@ export default defineComponent({
   },
   data() {
     return {
-      currentSliderImage: null,
+      currentSliderVideo: null,
       currentSliderButtonText: null,
       currentSlideId: -1,
       screens: [
@@ -89,7 +89,7 @@ export default defineComponent({
   methods: {
     goToSlide(index) {
       this.currentSlideId = index;
-      this.currentSliderImage = this.screens[index].image;
+      this.currentSliderVideo = this.screens[index].image;
       this.currentSliderButtonText = this.screens[index].buttontext;
     },
     goNextOne() {
