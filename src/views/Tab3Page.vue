@@ -53,15 +53,35 @@ export default defineComponent({
       screens: [
         {
           buttontext: 'Tab 1',
-          image: "https://i.ibb.co/SmHcmd8/1.jpg"
+          image: "https://splat-for-you.vercel.app/assets/video_novella/1.webm"
         },
         {
           buttontext: 'Tab 2',
-          image: "https://i.ibb.co/T2smTHp/2.jpg"
+          image: "https://splat-for-you.vercel.app/assets/video_novella/2.webm"
         },
         {
           buttontext: 'Tab 3',
-          image: "https://i.ibb.co/f2H1dfd/3.jpg"
+          image: "https://splat-for-you.vercel.app/assets/video_novella/3.webm"
+        },
+        {
+          buttontext: 'Tab 4',
+          image: "https://splat-for-you.vercel.app/assets/video_novella/4.webm"
+        },
+        {
+          buttontext: 'Tab 5',
+          image: "https://splat-for-you.vercel.app/assets/video_novella/5.webm"
+        },
+        {
+          buttontext: 'Tab 6',
+          image: "https://splat-for-you.vercel.app/assets/video_novella/6.webm"
+        },
+        {
+          buttontext: 'Tab 7',
+          image: "https://splat-for-you.vercel.app/assets/video_novella/7.webm"
+        },
+        {
+          buttontext: 'Tab 8',
+          image: "https://splat-for-you.vercel.app/assets/video_novella/8.webm"
         }
       ]
     }
