@@ -3,9 +3,10 @@
     <ion-content :fullscreen="true">
 
       <div class="image-container">
-        <video :src="currentSliderVideo" autoplay loop muted playsinline class="fullscreen-video" />
-        <ion-button expand="block" class="bottom-button" style="margin-bottom: 2vh;"
-          @click="goNextOne">{{ currentSliderButtonText }}</ion-button>
+        <video :src="currentSliderVideo" autoplay loop muted playsinline class="fullscreen-video"
+          style="margin-top: -2vh;" />
+        <ion-button expand="block" class="bottom-button" style="margin-bottom: 5vh;" @click="goNextOne">{{
+          currentSliderButtonText }}</ion-button>
       </div>
 
       <div style="display: none;">
@@ -18,8 +19,8 @@
             allowfullscreen="allowfullscreen" allow="fullscreen">
           </iframe>
         </div>
-        <ion-button expand="block" class="bottom-button" style="margin-bottom: 2vh;"
-          @click="goNextOne">{{ currentSliderButtonText }}</ion-button>
+        <ion-button expand="block" class="bottom-button" style="margin-bottom: 5vh;" @click="goNextOne">{{
+          currentSliderButtonText }}</ion-button>
       </div>
 
 
@@ -52,35 +53,35 @@ export default defineComponent({
       currentSlideId: -1,
       screens: [
         {
-          buttontext: 'Tab 1',
+          buttontext: 'Вперед!',
           image: "https://splat-for-you.vercel.app/assets/video_novella/1.webm"
         },
         {
-          buttontext: 'Tab 2',
+          buttontext: 'А какие компонены есть?',
           image: "https://splat-for-you.vercel.app/assets/video_novella/2.webm"
         },
         {
-          buttontext: 'Tab 3',
+          buttontext: 'Почему пероксиды лучше?',
           image: "https://splat-for-you.vercel.app/assets/video_novella/3.webm"
         },
         {
-          buttontext: 'Tab 4',
+          buttontext: 'Что влияет на цвет эмали?',
           image: "https://splat-for-you.vercel.app/assets/video_novella/4.webm"
         },
         {
-          buttontext: 'Tab 5',
+          buttontext: 'Спасибо! Расскажи еще что-нибудь',
           image: "https://splat-for-you.vercel.app/assets/video_novella/5.webm"
         },
         {
-          buttontext: 'Tab 6',
+          buttontext: 'Что может травмировать эмаль?',
           image: "https://splat-for-you.vercel.app/assets/video_novella/6.webm"
         },
         {
-          buttontext: 'Tab 7',
+          buttontext: 'Что выбрать ухода за полостью рта?',
           image: "https://splat-for-you.vercel.app/assets/video_novella/7.webm"
         },
         {
-          buttontext: 'Tab 8',
+          buttontext: 'Спасибо за информацию!',
           image: "https://splat-for-you.vercel.app/assets/video_novella/8.webm"
         }
       ]
@@ -98,10 +99,14 @@ export default defineComponent({
 
   },
   mounted() {
+    console.log("test")
+
     const tabsEl = document.querySelector('ion-tab-bar');
+    console.log(tabsEl)
     if (tabsEl) {
-      tabsEl.hidden = false;
+      tabsEl.hidden = true;
       tabsEl.style.height = "1";
+      tabsEl.style.display='none'
     }
 
     this.goToSlide(this.currentSlideId + 1);
@@ -138,10 +143,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
+  width: 100%;
   z-index: -100;
   background-size: cover;
 }
