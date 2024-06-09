@@ -101,7 +101,7 @@ export default defineComponent({
       this.currentSliderButtonText = this.screens[index].buttontext;
     },
     goNextOne() {
-      if (this.currentSlideId + 1 == 0) {
+      if (this.currentSlideId == 0) {
         const tabsEl = document.querySelector('ion-tab-bar');
         console.log(tabsEl)
         if (tabsEl) {
@@ -115,9 +115,9 @@ export default defineComponent({
         console.log(tabsEl)
         if (tabsEl) {
           tabsEl.hidden = false;
-          tabsEl.style.display = 'block'
+          tabsEl.style.display = 'flex'
         }
-        this.$router.push({path:'/tabs/tab1', replace: false });
+        this.$router.push({path:'/tabs/hello', replace: false });
       }
       this.goToSlide(this.currentSlideId + 1);
     },

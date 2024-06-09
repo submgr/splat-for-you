@@ -408,6 +408,15 @@ export default defineComponent({
             ]
         }
     },
+    mounted() {
+        const tabsEl = document.querySelector('ion-tab-bar');
+        console.log(tabsEl)
+        if (tabsEl) {
+          tabsEl.hidden = true;
+          tabsEl.style.height = "1";
+          tabsEl.style.display = 'none'
+        }
+    },
     methods: {
         /* eslint-disable-next-line no-unused-vars */
         onComplete(completed, questionList) {
@@ -463,6 +472,14 @@ export default defineComponent({
                     confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.1 } }));
                     confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.1 } }));
                 }, 250);
+
+                const tabsEl = document.querySelector('ion-tab-bar');
+                console.log(tabsEl)
+                if (tabsEl) {
+                    tabsEl.hidden = false;
+                    tabsEl.style.height = "1";
+                    tabsEl.style.display = 'flex'
+                }
             }, 4500)
         },
         getData() {
