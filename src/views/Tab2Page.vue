@@ -11,13 +11,13 @@
         <img class="bottom-image" src="../assets/graphics/love-conquers-all.png" style="width: 150vw;"></img>
       </div>
 
-      <div>
-
+      <div v-if="loading == true" style="margin-top: 40vh;">
+        <ion-spinner name="circles"></ion-spinner>
       </div>
 
 
 
-      <div v-if="finished == true" style="margin-left: 5vw; margin-right: 4vw; margin-top: 4vh; ">
+      <div v-if="loading != true && finished == true" style="margin-left: 5vw; margin-right: 4vw; margin-top: 4vh; ">
 
         <ion-segment :value="toggleView" style="width: 90vw;">
           <ion-segment-button value="0" @click="setToggleValue('0')">
@@ -46,7 +46,7 @@
 </template>
 
 <script lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonLabel, IonSegment, IonSegmentButton } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonLabel, IonSegment, IonSegmentButton, IonSpinner } from '@ionic/vue';
 import { Camera, CameraResultType } from '@capacitor/camera';
 
 import { ImgComparisonSlider } from '@img-comparison-slider/vue';
@@ -67,7 +67,8 @@ export default defineComponent({
     IonButton,
     IonLabel,
     IonSegment,
-    IonSegmentButton
+    IonSegmentButton,
+    IonSpinner
   },
   data() {
     return {
@@ -83,6 +84,9 @@ export default defineComponent({
   methods: {
     async setToggleValue(value) {
       this.toggleView = value;
+    },
+    async shareImage(){
+
     },
     async makePhoto() {
       // eslint-disable-next-line
