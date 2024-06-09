@@ -19,11 +19,11 @@
 
       <div v-if="finished == true">
 
-        <ion-segment value="default" style="margin-left: 5vw; margin-right: 5vw; margin-top: 5vh; width: 90vw;">
-          <ion-segment-button value="default">
+        <ion-segment :value="toggleView" style="margin-left: 5vw; margin-right: 5vw; margin-top: 5vh; width: 90vw;">
+          <ion-segment-button value="0" @click="setToggleValue('0')">
             <ion-label>Просто отбеливание</ion-label>
           </ion-segment-button>
-          <ion-segment-button value="segment">
+          <ion-segment-button value="1" @click="setToggleValue('1')">
             <ion-label>Улучшение с AI</ion-label>
           </ion-segment-button>
         </ion-segment>
@@ -31,8 +31,8 @@
         <ImgComparisonSlider style="border-radius: 20px;">
           <!-- eslint-disable -->
           <img slot="first" style="width: 100%" :src="image_before" />
-          <img slot="second" v-if="toggleView == 0" style="width: 100%" :src="image_after" />
-          <img slot="second" v-if="toggleView == 1" style="width: 100%" :src="image_after2" />
+          <img slot="second" v-if="toggleView == '0'" style="width: 100%" :src="image_after" />
+          <img slot="second" v-if="toggleView == '1'" style="width: 100%" :src="image_after2" />
           <!-- eslint-enable -->
         </ImgComparisonSlider>
       </div>
@@ -70,10 +70,13 @@ export default defineComponent({
       image_before: null,
       image_after: null,
       image_after2: null,
-      toggleView: 0
+      toggleView: "0"
     }
   },
   methods: {
+    async setToggleValue(value) {
+      this.toggleView = value;
+    },
     async makePhoto() {
       // eslint-disable-next-line
       const parent_this = this;
