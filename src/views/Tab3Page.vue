@@ -101,7 +101,6 @@ export default defineComponent({
       this.currentSliderButtonText = this.screens[index].buttontext;
     },
     goNextOne() {
-      this.goToSlide(this.currentSlideId + 1);
       if (this.currentSlideId + 1 == 0) {
         const tabsEl = document.querySelector('ion-tab-bar');
         console.log(tabsEl)
@@ -120,6 +119,7 @@ export default defineComponent({
         }
         this.$router.push({path:'/tabs/tab1', replace: false });
       }
+      this.goToSlide(this.currentSlideId + 1);
     },
 
   },
