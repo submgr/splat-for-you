@@ -17,6 +17,7 @@
     "@capacitor/core": "6.0.0",
     "@capacitor/haptics": "6.0.0",
     "@capacitor/keyboard": "6.0.0",
+    "@capacitor/share": "^6.0.0",
     "@capacitor/status-bar": "6.0.0",
     "@ditdot-dev/vue-flow-form": "^2.3.2",
     "@img-comparison-slider/vue": "^8.0.0",

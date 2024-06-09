@@ -36,7 +36,7 @@
           <!-- eslint-enable -->
         </ImgComparisonSlider>
 
-        <ion-button expand="block" class="bottom-button" style="margin-bottom: 3vh;" @click="goNextOne">Показать {{changingText1}}</ion-button>
+        <ion-button expand="block" @click="shareImage" class="bottom-button" style="margin-bottom: 3vh;" @click="goNextOne">Показать {{changingText1}}</ion-button>
       </div>
 
 
@@ -57,6 +57,8 @@ import {
   defineComponent
 } from 'vue';
 import { set } from 'cypress/types/lodash';
+
+import { Share } from '@capacitor/share';
 
 export default defineComponent({
   name: 'Tab1Page',
@@ -86,7 +88,9 @@ export default defineComponent({
       this.toggleView = value;
     },
     async shareImage(){
-
+      await Share.share({
+      url: this.image_after,
+    });
     },
     async makePhoto() {
       // eslint-disable-next-line
