@@ -28,7 +28,7 @@
           </ion-segment-button>
         </ion-segment>
 
-        <ImgComparisonSlider style="border-radius: 20px;">
+        <ImgComparisonSlider style="border-radius: 20px; margin-top: 7vh;">
           <!-- eslint-disable -->
           <img slot="first" style="width: 100%" :src="image_before" />
           <img slot="second" v-if="toggleView == '0'" style="width: 100%" :src="image_after" />
