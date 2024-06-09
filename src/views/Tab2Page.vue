@@ -11,8 +11,8 @@
         <img class="bottom-image" src="../assets/graphics/love-conquers-all.png" style="width: 150vw;"></img>
       </div>
 
-      <div v-if="loading == true" style="margin-top: 40vh;">
-        <ion-spinner name="circles"></ion-spinner>
+      <div v-if="loading == true" style="display: flex; justify-content: center; margin-top: 40vh;">
+        <ion-spinner name="crescent"></ion-spinner>
       </div>
 
 
