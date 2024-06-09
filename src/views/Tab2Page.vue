@@ -24,7 +24,7 @@
             <ion-label>Просто отбеливание</ion-label>
           </ion-segment-button>
           <ion-segment-button value="1" @click="setToggleValue('1')">
-            <ion-label>Улучшение с AI</ion-label>
+            <ion-label>Улучшение с AI 🤩</ion-label>
           </ion-segment-button>
         </ion-segment>
 
