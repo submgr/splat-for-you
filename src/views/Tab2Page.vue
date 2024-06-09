@@ -11,12 +11,31 @@
         <img class="bottom-image" src="../assets/graphics/love-conquers-all.png" style="width: 150vw;"></img>
       </div>
 
-      <ImgComparisonSlider v-if="finished == true">
-        <!-- eslint-disable -->
-        <img slot="first" style="width: 100%" :src="image_before" />
-        <img slot="second" style="width: 100%" :src="image_after" />
-        <!-- eslint-enable -->
-      </ImgComparisonSlider>
+      <div>
+
+      </div>
+
+
+
+      <div v-if="finished == true">
+
+        <ion-segment value="default" style="margin-left: 5vw; margin-right: 5vw; margin-top: 5vh; width: 90vw;">
+          <ion-segment-button value="default">
+            <ion-label>Просто отбеливание</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="segment">
+            <ion-label>Улучшение с AI</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+
+        <ImgComparisonSlider style="border-radius: 20px;">
+          <!-- eslint-disable -->
+          <img slot="first" style="width: 100%" :src="image_before" />
+          <img slot="second" v-if="toggleView == 0" style="width: 100%" :src="image_after" />
+          <img slot="second" v-if="toggleView == 1" style="width: 100%" :src="image_after2" />
+          <!-- eslint-enable -->
+        </ImgComparisonSlider>
+      </div>
 
 
 
@@ -47,9 +66,11 @@ export default defineComponent({
   data() {
     return {
       loading: false,
-      finished: false,
+      finished: true,
       image_before: null,
-      image_after: null
+      image_after: null,
+      image_after2: null,
+      toggleView: 0
     }
   },
   methods: {
@@ -84,8 +105,10 @@ export default defineComponent({
           // This will log the response text to the console.
           console.log(oReq.responseText);
           const hash = JSON.parse(oReq.responseText).hash;
-          const final_img_url = `https://hsecreate-machivevisionservice.deqstudio.com/result2/${hash}/after.jpg`;
+          const final_img_url = `https://hsecreate-machivevisionservice.deqstudio.com/result/${hash}/after.jpg`;
           parent_this.image_after = final_img_url;
+          const final_img_url2 = `https://hsecreate-machivevisionservice.deqstudio.com/result2/${hash}/after.jpg`;
+          parent_this.image_after2 = final_img_url2;
           parent_this.finished = true;
           // var win = window.open("", "_blank");
           // win.document.write("<html><body><img src='" + final_img_url + "'></body></html>");
@@ -177,5 +200,23 @@ img {
 
 .underlined {
   text-decoration: underline !important;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rounded-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 10px;
+  background-color: #4c4545;
+}
+
+.rounded-button ion-icon {
+  margin-right: 5px;
 }
 </style>
