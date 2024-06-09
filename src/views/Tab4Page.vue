@@ -1,6 +1,6 @@
 <template>
     <ion-page>
-        <ion-content :fullscreen="true">
+        <ion-content :fullscreen="true" @click="handleClick">
             <flow-form ref="flowform" v-on:complete="onComplete" v-bind:language="language" v-bind:progressbar="false"
                 v-bind:standalone="true">
                 <question v-for="(question, index) in questions" v-bind="question" v-bind:key="'m' + index"
@@ -11,18 +11,18 @@
                 <template v-slot:complete>
                     <div class="f-section-wrap">
                         <div v-if="1 < 2">
-                            <div v-if="loading" style="margin-left: -5vw;">
+                            <div v-if="loading" style="margin-left: -10vw;">
                                 <AdvancedLoader origin="support-chat-is-loading"
-                                    style="margin-top: 45vh; margin-left: -1vw;" />
+                                    style="margin-top: 35vh; margin-left: -4.5vw;" />
                                 <div class="center-image w-logo" style="margin-top: 05vh;">
-                                    <img src="../assets/graphics/logo-biomedforyou.png"></img>
+                                    <img src="../assets/graphics/logo-leftaligned_full.png"></img>
                                 </div>
 
                             </div>
                             <div v-else>
                                 <div>
 
-                                    <img :src="recommendation.image" style="height: 40vh;  transform: rotate(50deg);">
+                                    <img :src="recommendation.image" style="height: 48vh; margin-bottom: -10vh; margin-top: -5vh; margin-left: -5vw; transform: rotate(80deg);">
 
                                     <ion-card
                                         style="margin-left: -2vw; margin-right: 2vw; margin-top: -7vh; border-radius: 20px;">
@@ -43,6 +43,8 @@
                                                 recommendation.description }}
                                         </ion-card-content>
                                     </ion-card>
+
+                                    <ion-button @click="learnmodeaboutproduct" style="margin-left: -2vw; margin-right: 2vw; margin-top: 0vh; border-radius: 20px; text-align: left; " class="bottom-button"><span style="margin-left: 20px; margin-right: 30px;"> Узнать больше <span style="margin-left: 10px;"></span>🔎</span></ion-button>
                                 </div>
 
 
@@ -74,6 +76,7 @@ rion-content {
 </style>
 
 <script lang="ts">
+import { ref, onMounted } from 'vue'
 import { defineComponent } from 'vue';
 import { IonPage, IonContent, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle } from '@ionic/vue';
 import { FlowForm, Question, QuestionModel, QuestionType, ChoiceOption, LanguageModel } from '@ditdot-dev/vue-flow-form'
@@ -92,6 +95,7 @@ export default defineComponent({
             loading: false,
             completed: false,
             recommendedProduct: null,
+            firstClick: true,
             recommendation: {
                 title: null,
                 description: null,
@@ -409,15 +413,12 @@ export default defineComponent({
         }
     },
     mounted() {
-        const tabsEl = document.querySelector('ion-tab-bar');
-        console.log(tabsEl)
-        if (tabsEl) {
-          tabsEl.hidden = true;
-          tabsEl.style.height = "1";
-          tabsEl.style.display = 'none'
-        }
+        //
     },
     methods: {
+        learnmodeaboutproduct(){
+            window.open("https://splatglobal.com/products/", '_blank');
+        },
         /* eslint-disable-next-line no-unused-vars */
         onComplete(completed, questionList) {
             // This method is called whenever the "completed" status is changed.
@@ -427,14 +428,27 @@ export default defineComponent({
             //!!! this.$refs.flowform.submitted = true
             this.onSendData()
         },
-
+        handleClick(event) {
+            console.log('Page was clicked', event);
+            // Handle the click event here
+            if(this.firstClick == true){
+                const tabsEl = document.querySelector('ion-tab-bar');
+            console.log(tabsEl)
+            if (tabsEl) {
+            tabsEl.hidden = true;
+            tabsEl.style.height = "1";
+            tabsEl.style.display = 'none'
+            }
+            this.firstClick = false;
+            }
+        },
         onSendData() {
             // eslint-disable-next-line
             const self = this
             const data = this.getData()
             this.loading = true
 
-             // eslint-disable-next-line
+            // eslint-disable-next-line
             const parent_this = this;
 
             /*
