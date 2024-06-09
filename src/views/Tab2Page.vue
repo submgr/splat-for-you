@@ -19,7 +19,7 @@
 
       <div v-if="finished == true">
 
-        <ion-segment :value="toggleView" style="margin-left: 5vw; margin-right: 5vw; margin-top: 5vh; width: 90vw;">
+        <ion-segment :value="toggleView" style="margin-left: 5vw; margin-right: 5vw; margin-top: 6vh; width: 90vw;">
           <ion-segment-button value="0" @click="setToggleValue('0')">
             <ion-label>Просто отбеливание</ion-label>
           </ion-segment-button>
@@ -28,7 +28,7 @@
           </ion-segment-button>
         </ion-segment>
 
-        <ImgComparisonSlider style="border-radius: 20px; margin-top: 7vh;">
+        <ImgComparisonSlider style="border-radius: 20px; margin-top: 5vh;">
           <!-- eslint-disable -->
           <img slot="first" style="width: 100%" :src="image_before" />
           <img slot="second" v-if="toggleView == '0'" style="width: 100%" :src="image_after" />
