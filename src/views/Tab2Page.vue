@@ -17,7 +17,7 @@
 
 
 
-      <div v-if="finished == true" style="margin-left: 5vw; margin-right: 5vw; margin-top: 6vh; ">
+      <div v-if="finished == true" style="margin-left: 5vw; margin-right: 4vw; margin-top: 6vh; ">
 
         <ion-segment :value="toggleView" style="width: 90vw;">
           <ion-segment-button value="0" @click="setToggleValue('0')">
@@ -35,6 +35,8 @@
           <img slot="second" v-if="toggleView == '1'" style="width: 100%" :src="image_after2" />
           <!-- eslint-enable -->
         </ImgComparisonSlider>
+
+        <ion-button expand="block" class="bottom-button" style="margin-bottom: 5vh;" @click="goNextOne">Показать {{changingText1}}</ion-button>
       </div>
 
 
@@ -54,6 +56,7 @@ import confetti from 'canvas-confetti';
 import {
   defineComponent
 } from 'vue';
+import { set } from 'cypress/types/lodash';
 
 export default defineComponent({
   name: 'Tab1Page',
@@ -73,7 +76,8 @@ export default defineComponent({
       image_before: null,
       image_after: null,
       image_after2: null,
-      toggleView: "0"
+      toggleView: "0",
+      changingText1: " "
     }
   },
   methods: {
@@ -162,6 +166,14 @@ export default defineComponent({
       tabsEl.hidden = false;
       tabsEl.style.height = "1";
     }
+
+    const changingText1Phrases = ["маме", "папе", "друзьям", "себе", "всему миру", "подруге", "другу", "соседу", "коту", "собаке", "попугаю", "рыбке"];
+    var cht_len = changingText1Phrases.length;
+    var cht_curr = 0;
+    setInterval(() => {
+      this.changingText1 = changingText1Phrases[cht_curr];
+      cht_curr = (cht_curr + 1) % cht_len;
+    }, 1000);
 
     //this.makePhoto();
   },
