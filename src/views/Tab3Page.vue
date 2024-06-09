@@ -115,9 +115,8 @@ export default defineComponent({
         const tabsEl = document.querySelector('ion-tab-bar');
         console.log(tabsEl)
         if (tabsEl) {
-          tabsEl.hidden = true;
-          tabsEl.style.height = "1";
-          tabsEl.style.display = 'none'
+          tabsEl.hidden = false;
+          tabsEl.style.display = 'block'
         }
         this.$router.push({path:'/tabs/tab1', replace: false });
       }
