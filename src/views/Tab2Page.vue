@@ -36,7 +36,7 @@
           <!-- eslint-enable -->
         </ImgComparisonSlider>
 
-        <ion-button expand="block" @click="shareImage" class="bottom-button" style="margin-bottom: 3vh;" @click="goNextOne">Показать {{changingText1}}</ion-button>
+        <ion-button expand="block" @click="shareImage" class="bottom-button" style="margin-bottom: 3vh;">Показать {{changingText1}}</ion-button>
       </div>
 
 
