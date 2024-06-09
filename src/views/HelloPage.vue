@@ -47,7 +47,7 @@ export default defineComponent({
       tabsEl.style.height = "1";
       tabsEl.style.display = 'flex'
       this.$router.push({ path: '/tabs/tab1', replace: false });
-    }, 5000)
+    }, 3000)
   },
   setup() {
     return {

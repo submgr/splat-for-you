@@ -26,12 +26,6 @@
             </ion-col>
           </ion-row>
         </ion-grid>
-        <router-link to="/tabs/howtosort">
-          <div class="card bg6 borderradius30 card-smallheight" style="margin-top: 2%"><div class="card_text"></div></div>
-        </router-link>
-        <router-link to="/tabs/recyclepoints">
-          <div class="card bg4 borderradius30 card-smallheight" style="margin-top: -1.9%"><div class="card_text"></div></div>
-        </router-link>
         
         
       </ion-content>
