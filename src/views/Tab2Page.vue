@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonLabel, IonSegment, IonSegmentButton } from '@ionic/vue';
 import { Camera, CameraResultType } from '@capacitor/camera';
 
 import { ImgComparisonSlider } from '@img-comparison-slider/vue';
@@ -61,12 +61,15 @@ export default defineComponent({
     IonContent,
     IonPage,
     ImgComparisonSlider,
-    IonButton
+    IonButton,
+    IonLabel,
+    IonSegment,
+    IonSegmentButton
   },
   data() {
     return {
       loading: false,
-      finished: true,
+      finished: false,
       image_before: null,
       image_after: null,
       image_after2: null,
