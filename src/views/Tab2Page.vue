@@ -17,7 +17,7 @@
 
 
 
-      <div v-if="finished == true" style="margin-left: 5vw; margin-right: 4vw; margin-top: 6vh; ">
+      <div v-if="finished == true" style="margin-left: 5vw; margin-right: 4vw; margin-top: 4vh; ">
 
         <ion-segment :value="toggleView" style="width: 90vw;">
           <ion-segment-button value="0" @click="setToggleValue('0')">
@@ -28,7 +28,7 @@
           </ion-segment-button>
         </ion-segment>
 
-        <ImgComparisonSlider style="border-radius: 20px; margin-top: 5vh;">
+        <ImgComparisonSlider style="border-radius: 20px; margin-top: 3.4vh;">
           <!-- eslint-disable -->
           <img slot="first" style="width: 100%" :src="image_before" />
           <img slot="second" v-if="toggleView == '0'" style="width: 100%" :src="image_after" />
@@ -36,7 +36,7 @@
           <!-- eslint-enable -->
         </ImgComparisonSlider>
 
-        <ion-button expand="block" class="bottom-button" style="margin-bottom: 5vh;" @click="goNextOne">Показать {{changingText1}}</ion-button>
+        <ion-button expand="block" class="bottom-button" style="margin-bottom: 3vh;" @click="goNextOne">Показать {{changingText1}}</ion-button>
       </div>
 
 
