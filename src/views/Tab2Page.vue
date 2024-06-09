@@ -17,9 +17,9 @@
 
 
 
-      <div v-if="finished == true">
+      <div v-if="finished == true" style="margin-left: 5vw; margin-right: 5vw; margin-top: 6vh; ">
 
-        <ion-segment :value="toggleView" style="margin-left: 5vw; margin-right: 5vw; margin-top: 6vh; width: 90vw;">
+        <ion-segment :value="toggleView" style="width: 90vw;">
           <ion-segment-button value="0" @click="setToggleValue('0')">
             <ion-label>Просто отбеливание</ion-label>
           </ion-segment-button>
