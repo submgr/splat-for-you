@@ -3,14 +3,16 @@
     <ion-content :fullscreen="true">
 
       <div style="z-index: -99  !important; display: flex; justify-content: center; align-items: center;">
-        <ion-spinner name="crescent" style="margin-top: 40vh; z-index: -99  !important; display: relative; transform: scale(2);"></ion-spinner>
+        <ion-spinner name="crescent"
+          style="margin-top: 40vh; z-index: -99  !important; display: relative; transform: scale(2);"></ion-spinner>
       </div>
 
       <div class="image-container" style=" display: block;">
         <video :src="currentSliderVideo" autoplay loop muted playsinline class="fullscreen-video"
           style="margin-top: -2vh; z-index: 99 !important;" />
-        <ion-button expand="block" class="bottom-button" style="margin-bottom: 5vh; z-index: 100 !important;" @click="goNextOne">{{
-          currentSliderButtonText }}</ion-button>
+        <ion-button expand="block" class="bottom-button" style="margin-bottom: 5vh; z-index: 100 !important;"
+          @click="goNextOne">{{
+            currentSliderButtonText }}</ion-button>
       </div>
 
       <div style="display: none;">
@@ -100,19 +102,30 @@ export default defineComponent({
     },
     goNextOne() {
       this.goToSlide(this.currentSlideId + 1);
+      if (this.currentSlideId + 1 == 0) {
+        const tabsEl = document.querySelector('ion-tab-bar');
+        console.log(tabsEl)
+        if (tabsEl) {
+          tabsEl.hidden = true;
+          tabsEl.style.height = "1";
+          tabsEl.style.display = 'none'
+        }
+      }
+      if (this.currentSlideId + 1 == this.screens.length) {
+        const tabsEl = document.querySelector('ion-tab-bar');
+        console.log(tabsEl)
+        if (tabsEl) {
+          tabsEl.hidden = true;
+          tabsEl.style.height = "1";
+          tabsEl.style.display = 'none'
+        }
+        this.$router.push({path:'/tabs/tab1', replace: false });
+      }
     },
 
   },
   mounted() {
     console.log("test")
-
-    const tabsEl = document.querySelector('ion-tab-bar');
-    console.log(tabsEl)
-    if (tabsEl) {
-      tabsEl.hidden = true;
-      tabsEl.style.height = "1";
-      tabsEl.style.display = 'none'
-    }
 
     this.goToSlide(this.currentSlideId + 1);
   },
